@@ -1,0 +1,28 @@
+{
+  "manifest_version": 3,
+
+  "name": "Github Graph Background",
+  "version": "1.1.0",
+  "description": "A toy program for getting your GitHub Contributions and creating a background image from it with many themes",
+  "author": "me@jckimble.com",
+ 
+  "options_ui": {
+    "page": "options.html"
+  },
+
+  "action": {
+    "default_icon": "icon.png"
+  },
+
+  "content_scripts": [
+      {
+          "matches": ["<all_urls>"],
+          "js": ["js/vendor.js", "js/content_script.js"]
+      }
+  ],
+
+  "background": {
+    "service_worker": "js/background.js"
+  },
+  "permissions": ["system.display", "wallpaper", "storage", "alarms"]
+}
